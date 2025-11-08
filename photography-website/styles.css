@@ -1,0 +1,302 @@
+/* BASIC RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+  background: #000;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+header nav {
+  float: right;
+}
+
+header nav a {
+  color: #fff;
+  margin-left: 2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+/* HERO BUTTON */
+.hero-content .btn {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content .btn:hover {
+  transform: translateY(-5px);
+  background-color: #f0f0f0;
+}
+
+/* Portfolio - fade from hero image */
+#portfolio {
+  position: relative;
+  padding: 60px 0;
+  text-align: center;
+  background: #111; /* fallback color */
+  color: #f4f4f4;
+  overflow: hidden;
+}
+
+#portfolio::before {
+  content: '';
+  position: absolute;
+  top: -100px; /* adjust depending on overlap */
+  left: 0;
+  width: 100%;
+  height: 150px; /* height of the fade */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(17,17,17,1));
+  pointer-events: none;
+  z-index: 1;
+}
+
+#portfolio h2,
+#portfolio p,
+.gallery {
+  position: relative;
+  z-index: 2; /* bring content above the fade */
+}
+
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* ABOUT & CONTACT */
+section {
+  margin: 4rem 0;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button.btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #333;
+}
+
+/* FOOTER */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.lightbox .nav span {
+  position: absolute;
+  top: 50%;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+}
+
+.lightbox .prev { left: 20px; }
+.lightbox .next { right: 20px; }
+
+/* ===========================
+   HOVER COLORS
+   =========================== */
+.header nav a {
+  color: #fff; /* default nav link color */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #d3d3d3; /* light grey on hover */
+}
+
+.hero .btn {
+  background-color: #fff; /* default button background */
+  color: #000;            /* default text color */
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #d3d3d3; /* light grey background on hover */
+  color: #000;                /* keep text black */
+}
+
+/* ===========================
+   RESPONSIVE GALLERY IMAGES
+   =========================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer; /* clickable for lightbox */
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* ===========================
+   LIGHTBOX
+   =========================== */
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
